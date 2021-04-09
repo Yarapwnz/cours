@@ -13,4 +13,4 @@
 
     test:
       <<: *default
-      database: bicecle_shop_test
+      database: bicycle_shop_test
