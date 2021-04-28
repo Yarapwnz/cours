@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'breadcrumbs_on_rails'
+gem 'meta-tags'
 gem 'activestorage', '~> 6.1.3', '>= 6.1.3.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'coffee-rails', '~> 5.0.0'
