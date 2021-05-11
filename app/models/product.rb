@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
   has_many :galleries
 
+  belongs_to :category
+
   has_many :related_products
   has_many :related, through: :related_products
   enum hit: {hit: 1, not_hit: 0}

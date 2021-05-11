@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'ancestry'
 gem 'breadcrumbs_on_rails'
 gem 'meta-tags'
 gem 'activestorage', '~> 6.1.3', '>= 6.1.3.1'
