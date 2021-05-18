@@ -2,6 +2,9 @@ do /home/nextcay/education/cours/bin/bundle exec /home/nextcay/.rvm/rubies/ruby-
 Ruby enVironment Manager 1.29.12 (latest) (c) 2009-2020 Michal Papis, Piotr Kuczynski, Wayne E. Seguin
 
                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
+                                 product GET    /product/:id(.:format)                                                                            product#show
+                                category GET    /category/:id(.:format)                                                                           category#show
+                            search_index GET    /search(.:format)                                                                                 search#index
                                     root GET    /                                                                                                 main#index
            rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
               rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                              action_mailbox/ingresses/relay/inbound_emails#create
