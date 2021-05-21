@@ -32,9 +32,9 @@ $('#typeahead').bind('typeahead:select', function (ev, suggestion){
 
 
 /* CART */
-$(body).on('click', '.add-to-cart-link', function (e){
+$('body').on('click', '.add-to-cart-link', function (e){
     e.preventDefault();
-    let product_id = $(this).data('id'),
+    var product_id = $(this).data('id'),
         quantity = $('.quantity input').val() ? $('.quantity input').val() : 1,
         mod = $('.available select').val(),
         access = $('#cart_access').val();
@@ -60,11 +60,11 @@ $(body).on('click', '.add-to-cart-link', function (e){
 });
 
 $('#cart .modal-body').on('click', '.del-item', function(){
-    let id = $(this).data('id');
+    var id = $(this).data('id');
     $.ajax({
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token',
             $('meta[name="csrf-token"]').attr('content'))},
-        url: "/cart/cart_items/" + id,
+        url: "/cart/items/" + id,
         data: {id: id},
         method: 'delete',
         type: 'POST',
@@ -79,10 +79,10 @@ $('#cart .modal-body').on('click', '.del-item', function(){
 });
 
 function showCart(cart) {
-    if($.trim(cart) == '<td>Cart is Empty</td>'){
-        $('#cart .modal-footer a , #cart .modal-footer .btn-danger').css('display', 'none');
+    if($.trim(cart) === '<td>Cart is Empty</td>'){
+        $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'none');
     }else{
-        $('#cart .modal-footer a , #cart .modal-footer .btn-danger').css('display', 'inline-block');
+        $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'inline-block');
     }
     $('#cart .modal-body').html(cart);
     $('#cart').modal();
@@ -111,6 +111,7 @@ function showCartEmpty() {
     $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'none');
     modal.find('.modal-body').html(result.error)
 }
+
 function clearCart() {
     $.ajax({
         url: '/cart',

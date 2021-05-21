@@ -1,16 +1,20 @@
-<div class="breadcrumbs">
-  <div class="container">
-    <div class="breadcrumbs-main">
-      <ol class="breadcrumb">
-        <li><a href="/"><%= render_breadcrumbs %></a></li>
-        <li class="active"><%= @product.title %></li>
-      </ol>
-    </div>
-  </div>
+<!--start-breadcrumbs-->
+
+
+<div class="container">
+  <ol class="breadcrumb">
+
+    <li class="breadcrumb-item"><a href="/"><%= render_breadcrumbs %></a></li>
+    <li class="breadcrumb-item active"><%= @product.title %></li>
+
+  </ol>
 </div>
 
 
 
+
+<!--end-breadcrumbs-->
+<!--start-single-->
 <div class="single contact">
   <div class="container">
     <div class="single-main">
@@ -24,27 +28,31 @@
                   <% @product.galleries.each do |item| %>
                     <li data-thumb="<%= asset_path item['img'] %>">
                       <div class="thumb-image">
-                        <img src="<%= asset_path item['img'] %>" data-imagezoom="true" class="img-responsive" alt="">
+                        <img src="<%= asset_path item['img']%>" data-imagezoom="true" class="img-responsive" alt=""/>
                       </div>
                     </li>
                   <% end %>
                 </ul>
               </div>
-              <% else %>
-            <div class="flexslider">
-              <ul class="slides">
-                <li data-thumb="<%= asset_path 's-1.jpg' %>">
-                  <div class="thumb-image"><img src="<%= asset_path 's-1.jpg' %>" data-imagezoom="true" class="img-responsive" alt=""></div>
-                </li>
-                <li data-thumb="<%= asset_path 's-2.jpg' %>">
-                  <div class="thumb-image"><img src="<%= asset_path 's-2.jpg' %>" data-imagezoom="true" class="img-responsive" alt=""></div>
-                </li>
-                <li data-thumb="<%= asset_path 's-3.jpg' %>">
-                  <div class="thumb-image"><img src="<%= asset_path 's-3.jpg' %>" data-imagezoom="true" class="img-responsive" alt=""></div>
-                </li>
-              </ul>
-            </div>
-              <% end %>
+            <% else %>
+
+
+              <div class="flexslider">
+                <ul class="slides">
+                  <li data-thumb="<%= asset_path's-1.jpg' %>">
+                    <div class="thumb-image"><img src="<%= asset_path's-1.jpg' %>" data-imagezoom="true" class="img-responsive" alt=""></div>
+                  </li>
+                  <li data-thumb="<%= asset_path's-2.jpg' %>">
+                    <div class="thumb-image"><img src="<%= asset_path's-2.jpg' %>" alt=""></div>
+                  </li>
+                  <li data-thumb="<%= asset_path's-3.jpg' %>">
+                    <div class="thumb-image"> <img src="<%= asset_path's-3.jpg' %>" alt=""></div>
+                  </li>
+                </ul>
+              </div>
+
+            <% end %>
+
           </div>
           <div class="col-md-7 single-top-right">
             <div class="single para simpleCart_shelfItem">
@@ -147,43 +155,14 @@
           </ul>
         </div>
 
-        <% unless @product.related.nil? %>
-          <div class="latestproducts">
-            <div class="product-one">
-              <h3>Related Products</h3>
-              <% @product.related.each do |related| %>
-                <div class="col-md-3 product-left p-left">
-                  <div class="product-main simpleCart_shelfItem">
-                    <a href="<%= related.id %>" class="mask">
-                      <img class="img-responsive zoom-img" src="<%= asset_path related.img %>" alt="">
-                    </a>
-                    <div class="product-bottom">
-                      <h3><a href="<%= related.id %>"><%= related.title %></a></h3>
-                      <p>Explore Now</p>
-                      <h4>
-                        <a class="item_add add-to-cart-link" href="cart/add?id=<%= related.id %>" data-id="<%= related.id %>"><i></i>
-                        </a>
-                        <span class="item_price">$ <%= related.price %></span>
-                        <% if related.old_price %>
-                          <del><%= related.old_price %></del>
-                        <% end %>
-                      </h4>
-                    </div>
-                    <div class="srch">
-                      <span>-50%</span>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
 
-
-        <% end %>
         <div class="clearfix"></div>
       </div>
-      </div>
-    <%# end %>
+
+    </div>
+
+
+
     <div class="col-md-3 single-right">
       <div class="w_sidebar">
         <section class="sky-form">
@@ -266,6 +245,41 @@
     </div>
     <div class="clearfix"></div>
 
+    <% unless @product.related.nil? %>
+      <div class="latestproducts">
+        <div class="product-one">
+          <h3>Related Products</h3>
+          <% @product.related.each do |related| %>
+            <div class="col-md-3 product-left p-left">
+              <div class="product-main simpleCart_shelfItem">
+                <a href="<%= related.id %>" class="mask">
+                  <img class="img-responsive zoom-img" src="<%= asset_path related.img %>" alt="">
+                </a>
+                <div class="product-bottom">
+                  <h3><a href="<%= related.id %>"><%= related.title %></a></h3>
+                  <p>Explore Now</p>
+                  <h4>
+                    <a class="item_add add-to-cart-link" href="cart/add?id=<%= related.id %>" data-id="<%= related.id %>"><i></i>
+                    </a>
+                    <span class="item_price">$ <%= related.price %></span>
+                    <% if related.old_price %>
+                      <del><%= related.old_price %></del>
+                    <% end %>
+                  </h4>
+                </div>
+                <div class="srch">
+                  <span>-50%</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+    <% end %>
+    <div class="clearfix"></div>
+
     <% if recent_products.any? %>
 
       <div class="latestproducts">
@@ -307,4 +321,5 @@
     <% end %>
 
   </div>
+</div>
 </div>
