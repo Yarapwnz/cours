@@ -32,7 +32,7 @@ $('#typeahead').bind('typeahead:select', function (ev, suggestion){
 
 
 /* CART */
-$('body').on('click', '.add-to-cart-link', function (e){
+$('body').on('click', '.add-to-cart-link', function (e) {
     e.preventDefault();
     var product_id = $(this).data('id'),
         quantity = $('.quantity input').val() ? $('.quantity input').val() : 1,
