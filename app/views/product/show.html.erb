@@ -259,7 +259,8 @@
                   <h3><a href="<%= related.id %>"><%= related.title %></a></h3>
                   <p>Explore Now</p>
                   <h4>
-                    <a class="item_add add-to-cart-link" href="cart/add?id=<%= related.id %>" data-id="<%= related.id %>"><i></i>
+                    <a class="item_add add-to-cart-link" href="cart/add?id=<%= related.id %>" data-id="<%= related.id %>">
+                      <i></i>
                     </a>
                     <span class="item_price">$ <%= related.price %></span>
                     <% if related.old_price %>

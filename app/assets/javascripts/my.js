@@ -79,6 +79,7 @@ $('#cart .modal-body').on('click', '.del-item', function(){
 });
 
 function showCart(cart) {
+    console.log('123132')
     if($.trim(cart) === '<td>Cart is Empty</td>'){
         $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'none');
     }else{
@@ -87,11 +88,14 @@ function showCart(cart) {
     $('#cart .modal-body').html(cart);
     $('#cart').modal();
     if($('.cart-sum').text()){
+        console.log('ok')
         $('.simpleCart_total').html($('#cart .cart-sum').text());
     }else{
+        console.log('wrongs')
         $('.simpleCart_total').text('Empty Cart');
     }
 }
+
 function getCart() {
     $.ajax({
         url: '/cart',
